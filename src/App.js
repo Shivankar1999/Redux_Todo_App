@@ -6,7 +6,7 @@ import styles from './Styles/Appstyling.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { DeleteAll } from './redux/TodoApp/actions';
 import { useState } from 'react';
-import { Route, Routes } from 'react-router-dom';
+
 import { KnowUs } from './Pages/KnowUs';
 function App() {
   const dispatch = useDispatch();

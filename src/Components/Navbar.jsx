@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from '../Styles/Navbar.module.css';
 import { MdViewList } from 'react-icons/md';
 const Navbar = ({ togglePopUp, settogglePopUp }) => {
