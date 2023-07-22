@@ -1,0 +1,60 @@
+/* Navbar.module.css */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px,
+    rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px,
+    rgba(0, 0, 0, 0.07) 0px 16px 16px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
+.logo svg {
+  width: 40px; /* Adjust the logo size as needed */
+  height: 40px;
+  margin-right: 10px;
+}
+
+.navLinks {
+  display: flex;
+  list-style: none;
+}
+
+.navLinks li {
+  margin-right: 20px;
+}
+
+.navLinks a {
+  text-decoration: none;
+  color: #333;
+  transition: color 0.3s ease;
+  /* font-size: px; */
+  text-transform: uppercase;
+}
+
+.navLinks a:hover {
+  color: #007bff;
+}
+
+/* Responsive styles for mobile devices */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+  }
+
+  .navLinks {
+    margin-top: 10px;
+    margin-right: 20px;
+  }
+
+  .navLinks li {
+    margin: 10px 15px;
+  }
+}

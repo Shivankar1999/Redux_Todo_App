@@ -1,24 +1,52 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { Form } from './Components/Form';
+import Navbar from './Components/Navbar';
+import { Todos } from './Components/Todos';
+import { MdRestoreFromTrash } from 'react-icons/md';
+import styles from './Styles/Appstyling.module.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { DeleteAll } from './redux/TodoApp/actions';
+import { useState } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import { KnowUs } from './Pages/KnowUs';
 function App() {
+  const dispatch = useDispatch();
+  const todos = useSelector((state) => state.operationReducers);
+  const [editForm, seteditForm] = useState(false);
+  const [editTodo, seteditTodo] = useState('');
+  const [togglePopUp, settogglePopUp] = useState(false);
+
+  const handleEditForm = (todo) => {
+    seteditForm(true);
+    seteditTodo(todo);
+  };
+  const cancleUpdate = () => {
+    seteditForm(false);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar togglePopUp={togglePopUp} settogglePopUp={settogglePopUp} />
+      <div className={styles.Appstyling}>
+        <Form
+          editForm={editForm}
+          editTodo={editTodo}
+          cancleUpdate={cancleUpdate}
+        />
+        <Todos editForm={editForm} handleEditForm={handleEditForm} />
+        {todos.length > 1 && (
+          <button
+            className={styles.AppstylingBtn}
+            onClick={() => dispatch(DeleteAll())}
+          >
+            Remove ALL <MdRestoreFromTrash />
+          </button>
+        )}
+        {togglePopUp ? (
+          <KnowUs togglePopUp={togglePopUp} settogglePopUp={settogglePopUp} />
+        ) : (
+          ''
+        )}
+      </div>
+    </>
   );
 }
 

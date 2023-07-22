@@ -1,0 +1,29 @@
+.todocontainer {
+  /* border: 1px solid red; */
+  box-shadow: 0px 0px 2px 1.5px #a9a5a5;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 600px;
+  width: 80%;
+  /* margin: auto; */
+  margin: 10px 0px;
+  padding: 4px 6px;
+}
+.todocontent {
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border: 2px solid red; */
+  height: 100%;
+}
+.todocontent input[type='checkbox'] {
+  cursor: pointer;
+}
+.todoaction svg {
+  font-size: large;
+  margin-left: 5px;
+  cursor: pointer;
+}
